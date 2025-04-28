@@ -1,44 +1,38 @@
-# Logic for zones, BMI calculation, alerts
-def calculate_bmi(weight_kg, height_cm):
+# src/health_metrics.py
+
+import pandas as pd
+
+def calculate_bmi(weight_kg: float, height_cm: float) -> float:
     """
-    Calculate BMI from weight and height.
+    Calculate BMI using weight and height.
+    
+    Args:
+        weight_kg (float): Weight in kilograms.
+        height_cm (float): Height in centimeters.
+    
+    Returns:
+        float: Calculated BMI.
     """
-    height_m = height_cm / 100
-    if height_m <= 0:
+    if height_cm == 0:
         return None
-    return round(weight_kg / (height_m ** 2), 2)
+    height_m = height_cm / 100
+    return weight_kg / (height_m ** 2)
 
-def bmi_category(bmi):
+def determine_bmi_zone(bmi: float) -> str:
     """
-    Determine BMI category.
+    Determine the BMI zone based on standard ranges.
+    
+    Args:
+        bmi (float): BMI value.
+    
+    Returns:
+        str: Zone ('Good', 'Warning', 'Red Flag')
     """
-    if bmi < 18.5:
-        return 'Underweight'
-    elif 18.5 <= bmi < 25:
-        return 'Normal'
-    elif 25 <= bmi < 30:
-        return 'Overweight'
+    if bmi is None:
+        return 'Unknown'
+    if 18.5 <= bmi <= 24.9:
+        return 'Good'
+    elif 25.0 <= bmi <= 29.9:
+        return 'Warning'
     else:
-        return 'Obese'
-
-def blood_pressure_zone(systolic, diastolic):
-    """
-    Return BP zone color: 'green', 'yellow', 'red'
-    """
-    if systolic < 120 and diastolic < 80:
-        return 'green'
-    elif 120 <= systolic < 140 or 80 <= diastolic < 90:
-        return 'yellow'
-    else:
-        return 'red'
-
-def heart_rate_zone(hr):
-    """
-    Return Heart Rate zone: 'green', 'yellow', 'red'
-    """
-    if 60 <= hr <= 100:
-        return 'green'
-    elif 50 <= hr < 60 or 100 < hr <= 110:
-        return 'yellow'
-    else:
-        return 'red'
+        return 'Red Flag'

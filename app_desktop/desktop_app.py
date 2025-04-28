@@ -9,7 +9,7 @@ import pandas as pd
 # Adjust path to import shared code
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from data_handler import load_health_data
-from health_metrics import calculate_bmi
+from ORIGINALhealth_metrics import calculate_bmi
 
 class HealthDashboard(QWidget):
     def __init__(self):
