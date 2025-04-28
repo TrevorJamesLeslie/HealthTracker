@@ -1,6 +1,5 @@
 # HealthTracker
 
-"""
 I want to start a new software project. Probably in Python. The purpose is to produce a personal health tracker. We will begin with basic personal data such as date, height, weight, BMI, heart rate, blood pressure. In future we will add things like cholesterol levels, liver & kidney function and other blood tests. We will include good zone ranges, warning levels and red flag levels. I have much of this information for myself in an excel spreadsheet. My objective is to present it as an interactive dashboard. This implies some data analysis, I think. It's important to note that apparent error outliers are in fact likely not errors, more signs alerting and pointing to underlying problems.
 
 That sounds like a fantastic project, both meaningful and very expandable!
