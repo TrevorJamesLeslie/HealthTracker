@@ -1,1 +1,17 @@
+dash
+pandas
+plotly
+openpyxl
 
+# pip install -r requirements.txt
+
+# cd app_web
+# python dashboard.py
+
+PyQt5
+PyQtWebEngine
+
+# pip install PyQt5 PyQtWebEngine
+
+# cd app_desktop
+# python desktop_app.py
